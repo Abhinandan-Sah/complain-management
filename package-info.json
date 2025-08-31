@@ -1,0 +1,25 @@
+{
+  "name": "complaint-management-system",
+  "version": "1.0.0",
+  "description": "A full-stack complaint management system built with Next.js, TypeScript, MongoDB, and Nodemailer",
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/complaint-management-system.git"
+  },
+  "keywords": [
+    "nextjs",
+    "typescript",
+    "mongodb",
+    "nodemailer",
+    "complaint-management",
+    "full-stack",
+    "react",
+    "tailwindcss"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
