@@ -1,4 +1,4 @@
-import NextAuth from 'next-auth';
+import NextAuth, { AuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
@@ -10,7 +10,7 @@ import User from '@/models/User';
 const client = new MongoClient(process.env.MONGODB_URI!);
 const clientPromise = client.connect();
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
   adapter: MongoDBAdapter(clientPromise),
   providers: [
     GoogleProvider({
@@ -65,7 +65,7 @@ export const authOptions = {
       return token;
     },
     async session({ session, token }) {
-      if (token) {
+      if (token && session.user) {
         session.user.id = token.sub;
         session.user.role = token.role;
       }
@@ -97,7 +97,7 @@ export const authOptions = {
   },
   pages: {
     signIn: '/auth/signin',
-    signUp: '/auth/signup',
+    // signUp: '/auth/signup',
   },
   session: {
     strategy: 'jwt',
